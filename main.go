@@ -100,7 +100,7 @@ func main() {
 	// Right segments
 	add(&right, 0, func() string { return segConda() })
 	add(&right, 1, func() string { return segVenv() })
-	add(&right, 2, func() string { return segK8s(home) })
+	add(&right, 2, func() string { return segK8s(cwd, home) })
 	add(&right, 3, func() string { return segAWS() })
 	add(&right, 4, func() string { return segDuration(duration) })
 	add(&right, 5, func() string { return segTime() })
@@ -265,7 +265,19 @@ func segVenv() string {
 	return fc(cGreen, "\ue73c "+filepath.Base(venv))
 }
 
-func segK8s(home string) string {
+func segK8s(cwd, home string) string {
+	markers := []string{"skaffold.yaml", "helmfile.yaml", "Chart.yaml", "kustomization.yaml"}
+	hasMarker := false
+	for _, m := range markers {
+		if _, err := os.Stat(filepath.Join(cwd, m)); err == nil {
+			hasMarker = true
+			break
+		}
+	}
+	if !hasMarker {
+		return ""
+	}
+
 	kubeconfig := os.Getenv("KUBECONFIG")
 	if kubeconfig == "" {
 		kubeconfig = filepath.Join(home, ".kube", "config")
