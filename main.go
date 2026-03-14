@@ -15,7 +15,7 @@ var Version = "dev"
 func main() {
 	if len(os.Args) > 1 {
 		switch os.Args[1] {
-		case "--version":
+		case "--version", "-v":
 			fmt.Println("mehshell", Version)
 			return
 		case "init":
