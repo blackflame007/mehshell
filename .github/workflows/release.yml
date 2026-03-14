@@ -67,3 +67,26 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN || secrets.GITHUB_TOKEN }}
+
+  aur:
+    needs: [release, tag]
+    if: always() && needs.release.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update PKGBUILD version
+        run: |
+          TAG="${{ needs.tag.outputs.tag || github.ref_name }}"
+          VERSION="${TAG#v}"
+          sed -i "s/^pkgver=.*/pkgver=${VERSION}/" aur/PKGBUILD
+
+      - name: Publish to AUR
+        uses: KSXGitHub/github-actions-deploy-aur@v4.1.1
+        with:
+          pkgname: mehshell-bin
+          pkgbuild: aur/PKGBUILD
+          commit_username: blackflame007
+          commit_email: blackflame007@users.noreply.github.com
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+          commit_message: "Update to ${{ needs.tag.outputs.tag || github.ref_name }}"
