@@ -123,11 +123,7 @@ This creates `~/.config/mehshell/config` (or `$XDG_CONFIG_HOME/mehshell/config`)
 | `duration`  | `true`  | Command duration (shown when ≥ 3s).                |
 | `time`      | `true`  | Current time.                                      |
 
-Set any option to `false` to disable it. After editing, restart your shell or run:
-
-```bash
-source <(mehshell init zsh)
-```
+Set any option to `false` to disable it. Config changes are picked up live — save the file and your next prompt reflects the update. No shell restart needed.
 
 To see where your config lives:
 
