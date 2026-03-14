@@ -20,5 +20,15 @@ archives:
 checksum:
   name_template: "checksums.txt"
 
+brews:
+  - repository:
+      owner: blackflame007
+      name: homebrew-tap
+    homepage: https://github.com/blackflame007/mehshell
+    description: "Fast, parallelized zsh prompt engine written in Go"
+    license: MIT
+    install: |
+      bin.install "mehshell"
+
 changelog:
   sort: asc
