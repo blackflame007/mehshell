@@ -1,33 +1,33 @@
-# mehshell
+# mehshell 🐚
 
-A fast, parallelized prompt engine for zsh written in Go.
+⚡ A blazingly fast, parallelized prompt engine for zsh written in Go.
 
 ## Prompt Example
 
 ![Prompt styles](docs/screenshots/prompt_styles_screenshot.png)
 
-## Features
+## ✨ Features
 
-- Single Go binary, ~6ms per prompt.
-- All segments run as parallel goroutines.
-- Git dirty check with 150ms timeout. It never blocks, even in huge repos.
-- Zero-fork git branch detection. It reads .git/HEAD directly.
-- OS icon auto-detection for Arch, Ubuntu, Fedora, Debian, NixOS, and macOS.
-- Runtime version detection for Node.js, Python, Go, Rust, Ruby, and Java when marker files are present.
-- Cloud context support for Kubernetes, AWS, Azure, and GCP profiles.
-- Terraform workspace and Docker context detection.
-- Environment detection for Conda and virtualenv.
-- Battery level with charge state icons.
-- Command duration (3s+), time, and exit code coloring.
-- Vi mode indicator (swaps prompt char on keymap change).
-- Transient prompt (collapses previous prompt on Enter).
-- Instant prompt (caches last prompt for zero-latency shell startup).
-- Right-aligned segments on the first line.
-- Nerd Font icons.
-- Live config reloading. Save the file, next prompt picks it up — no shell restart required.
-- Configurable via `~/.config/mehshell/config`.
+- 🚀 Single Go binary, ~6ms per prompt.
+- 🔀 All segments run as parallel goroutines.
+- 🔥 Git dirty check with 150ms timeout. It never blocks, even in huge repos.
+- 🧠 Zero-fork git branch detection. It reads .git/HEAD directly.
+- 🖥️ OS icon auto-detection for Arch, Ubuntu, Fedora, Debian, NixOS, and macOS.
+- 📦 Runtime version detection for Node.js, Python, Go, Rust, Ruby, and Java when marker files are present.
+- ☁️ Cloud context support for Kubernetes, AWS, Azure, and GCP profiles.
+- 🏗️ Terraform workspace and Docker context detection.
+- 🐍 Environment detection for Conda and virtualenv.
+- 🔋 Battery level with charge state icons.
+- ⏱️ Command duration (3s+), time, and exit code coloring.
+- ✏️ Vi mode indicator (swaps prompt char on keymap change).
+- 🪄 Transient prompt (collapses previous prompt on Enter).
+- ⚡ Instant prompt (caches last prompt for zero-latency shell startup).
+- ➡️ Right-aligned segments on the first line.
+- 🎨 Nerd Font icons.
+- 🔄 Live config reloading. Save the file, next prompt picks it up — no shell restart required.
+- ⚙️ Configurable via `~/.config/mehshell/config`.
 
-## Install
+## 📥 Install
 
 ### Homebrew (macOS & Linux)
 
@@ -66,7 +66,7 @@ curl -sL https://github.com/blackflame007/mehshell/releases/latest/download/mehs
 go install github.com/blackflame007/mehshell@latest
 ```
 
-## Zsh Integration
+## 🔌 Zsh Integration
 
 Add this to your `.zshrc`:
 
@@ -74,7 +74,7 @@ Add this to your `.zshrc`:
 eval "$(mehshell init zsh)"
 ```
 
-## Configuration
+## 🛠️ Configuration
 
 Generate a default config file:
 
@@ -132,7 +132,7 @@ To see where your config lives:
 mehshell config path
 ```
 
-## Benchmarks
+## 📊 Benchmarks
 
 | Metric            | p10k                   | mehshell |
 | ----------------- | ---------------------- | -------- |
@@ -140,7 +140,7 @@ mehshell config path
 | Between commands  | 6000ms (with vcs_info) | 28ms     |
 | Prompt generation | ~45ms                  | 6ms      |
 
-## Feature Comparison with Powerlevel10k
+## 🆚 Feature Comparison with Powerlevel10k
 
 mehshell is intentionally minimal. p10k is a full-featured theme engine. Pick the right tool for your workflow.
 
@@ -189,12 +189,12 @@ mehshell is intentionally minimal. p10k is a full-featured theme engine. Pick th
 
 > **Note**: p10k is in limited maintenance mode — no new features are in development.
 
-## Requirements
+## 📋 Requirements
 
 - Go 1.22+ (build only)
 - Nerd Font
 - zsh
 
-## License
+## 📄 License
 
 MIT
